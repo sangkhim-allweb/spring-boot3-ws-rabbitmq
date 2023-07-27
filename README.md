@@ -9,7 +9,7 @@
     docker network inspect mynet
 
     note 1
-    docker run -d --hostname rabbit1 --name myrabbit1 -p 15672:15672 -p 5672:5672 --network mynet -e RABBITMQ_ERLANG_COOKIE=’rabbitcookie’ rabbitmq:management
+    docker run -d --hostname rabbit1 --name myrabbit1 -p 15672:15672 -p 5672:5672 -p 61613:61613 --network mynet -e RABBITMQ_ERLANG_COOKIE=’rabbitcookie’ rabbitmq:management
     note 2
     docker run -d --hostname rabbit2 --name myrabbit2 -p 5673:5672 --link myrabbit1:rabbit1 --network mynet -e RABBITMQ_ERLANG_COOKIE=’rabbitcookie’ rabbitmq:management
     node 3
@@ -20,6 +20,7 @@
     rabbitmqctl stop_app
     rabbitmqctl reset
     rabbitmqctl start_app
+    exit
 
     node 2
     docker exec -it myrabbit2 bash
@@ -27,6 +28,7 @@
     rabbitmqctl reset
     rabbitmqctl join_cluster --ram rabbit@rabbit1
     rabbitmqctl start_app
+    exit
 
     node 3
     docker exec -it myrabbit3 bash
@@ -34,10 +36,9 @@
     rabbitmqctl reset
     rabbitmqctl join_cluster --ram rabbit@rabbit1
     rabbitmqctl start_app
-
-    guest/guest
-
-    Custom username/password
-    -e RABBITMQ_DEFAULT_USER=username -e RABBITMQ_DEFAULT_PASS=password
+    exit
 
     rabbitmdctl cluster_status
+
+    http://localhost:15672
+    guest/guest

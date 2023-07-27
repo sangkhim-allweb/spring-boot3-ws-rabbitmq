@@ -16,3 +16,9 @@ spring:
   h2:
     console:
       enabled: true
+  rabbitmq:
+    dynamic: true
+    host: localhost
+    port: 15672
+    username: guest
+    password: guest
