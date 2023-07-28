@@ -5,6 +5,7 @@ spring:
   mvc:
     servlet:
       path: /api
+
   datasource:
     url: jdbc:h2:mem:blog;DATABASE_TO_UPPER=false
     driverClassName: org.h2.Driver
@@ -16,6 +17,14 @@ spring:
   h2:
     console:
       enabled: true
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:18080/realms/realm-sangkhim
+        jwt.jwk-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs
+
   rabbitmq:
     dynamic: true
     host: localhost
