@@ -1,5 +1,8 @@
 # spring-boot3-ws-rabbitmq
 
+## websocket security
+    https://stackoverflow.com/questions/45405332/websocket-authentication-and-authorization-in-spring
+
 ## rabbitmq
     https://medium.com/@saurabh.singh0829/how-to-create-rabbitmq-cluster-in-docker-aws-linux-4b26a31f90bc
 

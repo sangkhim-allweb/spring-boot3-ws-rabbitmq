@@ -1,5 +1,6 @@
 package com.sangkhim.spring_boot3_ws.event;
 
+import java.util.Objects;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
@@ -15,26 +16,32 @@ public class WebSocketEventListener {
 
   @EventListener
   public void handleConnectEvent(SessionConnectEvent event) {
-    log.info(">>> handleConnectEvent: event=" + event);
+    log.info(
+        ">>> handleConnectEvent: username=" + Objects.requireNonNull(event.getUser()).getName());
   }
 
   @EventListener
   public void handleConnectedEvent(SessionConnectedEvent event) {
-    log.info(">>> handleConnectedEvent: event=" + event);
+    log.info(
+        ">>> handleConnectedEvent: username=" + Objects.requireNonNull(event.getUser()).getName());
   }
 
   @EventListener
   public void handleSubscribeEvent(SessionSubscribeEvent event) {
-    log.info(">>> handleSubscribeEvent: event=" + event);
+    log.info(
+        ">>> handleSubscribeEvent: username=" + Objects.requireNonNull(event.getUser()).getName());
   }
 
   @EventListener
   public void handleUnsubscribeEvent(SessionUnsubscribeEvent event) {
-    log.info(">>> handleUnsubscribeEvent: event=" + event);
+    log.info(
+        ">>> handleUnsubscribeEvent: username="
+            + Objects.requireNonNull(event.getUser()).getName());
   }
 
   @EventListener
   public void handleDisconnectEvent(SessionDisconnectEvent event) {
-    log.info(">>> handleDisconnectEvent: event=" + event);
+    log.info(
+        ">>> handleDisconnectEvent: username=" + Objects.requireNonNull(event.getUser()).getName());
   }
 }

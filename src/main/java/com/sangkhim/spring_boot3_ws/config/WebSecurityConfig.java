@@ -27,7 +27,7 @@ public class WebSecurityConfig {
     http.securityMatcher("/**")
         .authorizeHttpRequests(
             rmr ->
-                rmr.requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/actuator/**")
+                rmr.requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/actuator/**", "/ws/**")
                     .permitAll());
 
     // h2-console
