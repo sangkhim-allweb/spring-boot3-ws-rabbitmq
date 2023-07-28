@@ -11,7 +11,7 @@ import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerCo
 @EnableWebSocketMessageBroker
 public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
-  private static final Boolean useInMemoryBroker = false;
+  private static final Boolean USE_IN_MEMORY_BROKER = true;
 
   @Value("${spring.rabbitmq.host}")
   private String host;
@@ -27,7 +27,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     registry.setApplicationDestinationPrefixes("/app");
     registry.setUserDestinationPrefix("/user");
 
-    if (useInMemoryBroker) {
+    if (Boolean.TRUE.equals(USE_IN_MEMORY_BROKER)) {
       // Enables a simple in-memory broker
       registry.enableSimpleBroker("/topic", "/queue");
     } else {
@@ -51,6 +51,6 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
   @Override
   public void registerStompEndpoints(StompEndpointRegistry registry) {
-    registry.addEndpoint("/ws").setAllowedOrigins("*").withSockJS();
+    registry.addEndpoint("/ws").setAllowedOriginPatterns("*").withSockJS();
   }
 }
