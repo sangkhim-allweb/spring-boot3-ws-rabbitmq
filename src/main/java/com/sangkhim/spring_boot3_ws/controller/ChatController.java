@@ -1,7 +1,5 @@
 package com.sangkhim.spring_boot3_ws.controller;
 
-import java.util.HashMap;
-import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
@@ -32,8 +30,6 @@ public class ChatController {
       SimpMessageHeaderAccessor headerAccessor) {
 
     // send message
-    Map<String, Object> headers = new HashMap<>();
-    headers.put("auto-delete", "true");
-    messagingTemplate.convertAndSendToUser(recipient, "/queue/reply", chatMessage, headers);
+    messagingTemplate.convertAndSendToUser(recipient, "/queue/reply", chatMessage);
   }
 }
