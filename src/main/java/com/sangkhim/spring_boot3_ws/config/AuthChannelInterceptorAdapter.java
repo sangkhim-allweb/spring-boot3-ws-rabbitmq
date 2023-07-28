@@ -1,6 +1,6 @@
 package com.sangkhim.spring_boot3_ws.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.simp.stomp.StompCommand;
@@ -12,18 +12,13 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
 public class AuthChannelInterceptorAdapter implements ChannelInterceptor {
 
   private static final String USERNAME_HEADER = "username";
   private static final String PASSWORD_HEADER = "password";
+
   private final WebSocketAuthenticatorService webSocketAuthenticatorService;
-
-  @Autowired
-  public AuthChannelInterceptorAdapter(
-      final WebSocketAuthenticatorService webSocketAuthenticatorService) {
-
-    this.webSocketAuthenticatorService = webSocketAuthenticatorService;
-  }
 
   @Override
   public Message<?> preSend(final Message<?> message, final MessageChannel channel)
