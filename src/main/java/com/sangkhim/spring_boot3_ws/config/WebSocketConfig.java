@@ -16,7 +16,7 @@ import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerCo
 @Order(Ordered.HIGHEST_PRECEDENCE + 99)
 public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
-  private static final Boolean USE_IN_MEMORY_BROKER = true;
+  private static final Boolean USE_IN_MEMORY_BROKER = false;
 
   @Value("${spring.rabbitmq.host}")
   private String host;

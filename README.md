@@ -23,6 +23,8 @@
     rabbitmqctl stop_app
     rabbitmqctl reset
     rabbitmqctl start_app
+    rabbitmq-plugins enable rabbitmq_stomp
+    rabbitmq-plugins enable rabbitmq_mqtt
     exit
 
     node 2
@@ -31,6 +33,8 @@
     rabbitmqctl reset
     rabbitmqctl join_cluster --ram rabbit@rabbit1
     rabbitmqctl start_app
+    rabbitmq-plugins enable rabbitmq_stomp
+    rabbitmq-plugins enable rabbitmq_mqtt
     exit
 
     node 3
@@ -39,6 +43,8 @@
     rabbitmqctl reset
     rabbitmqctl join_cluster --ram rabbit@rabbit1
     rabbitmqctl start_app
+    rabbitmq-plugins enable rabbitmq_stomp
+    rabbitmq-plugins enable rabbitmq_mqtt
     exit
 
     rabbitmdctl cluster_status
