@@ -1,4 +1,4 @@
-# spring-boot3-ws-rabbitmq
+# Spring Boot 3 Websocket with RabbitMQ
 
 ## websocket security
     https://stackoverflow.com/questions/45405332/websocket-authentication-and-authorization-in-spring
