@@ -1,9 +1,11 @@
 # Spring Boot 3 Websocket with RabbitMQ
 
 ## websocket security
+
     https://stackoverflow.com/questions/45405332/websocket-authentication-and-authorization-in-spring
 
 ## rabbitmq
+
     https://medium.com/@saurabh.singh0829/how-to-create-rabbitmq-cluster-in-docker-aws-linux-4b26a31f90bc
 
     docker run -p 16379:6379 -d redis:7.0 redis-server --requirepass "p@123456"
